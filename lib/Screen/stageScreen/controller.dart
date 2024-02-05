@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:greenworms/Screen/homeScreen/controller.dart';
@@ -83,6 +84,7 @@ class stageController extends GetxController {
       Get.back();
     } else {
       isLoading = false;
+      Fluttertoast.showToast(msg:json.decode(Response.body)["message"]);
       update();
     }
   }
